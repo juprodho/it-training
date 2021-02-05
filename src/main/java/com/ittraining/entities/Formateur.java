@@ -19,7 +19,7 @@ public class Formateur {
 		private Long id;
 		
 		@Column(name = "nom")
-		private String titre;
+		private String nom;
 
 		@Column(name = "note")
 		private int note;
@@ -39,12 +39,12 @@ public class Formateur {
 			this.id = id;
 		}
 
-		public String getTitre() {
-			return titre;
+		public String getNom() {
+			return nom;
 		}
 
-		public void setTitre(String titre) {
-			this.titre = titre;
+		public void setNom(String nom) {
+			this.nom = nom;
 		}
 
 		public int getNote() {
