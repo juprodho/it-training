@@ -17,6 +17,9 @@ public class Session {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
+	@Column(name="titre")
+	private String titre;
+	
 	@Column(name="numero")
 	private Integer numero;
 	
@@ -29,12 +32,18 @@ public class Session {
 	@Column(name="prix")
 	private String prix;
 	
-	@Column(name="note_formateur")
-	private Integer noteFormateur;
 	
 	@Column(name="nombre_participant")
 	private Integer nombreParticipant;
 	
+	
+	
+	public String getTitre() {
+		return titre;
+	}
+	public void setTitre(String titre) {
+		this.titre = titre;
+	}
 	public Long getId() {
 		return id;
 	}
@@ -65,12 +74,7 @@ public class Session {
 	public void setPrix(String prix) {
 		this.prix = prix;
 	}
-	public Integer getNoteFormateur() {
-		return noteFormateur;
-	}
-	public void setNoteFormateur(Integer noteFormateur) {
-		this.noteFormateur = noteFormateur;
-	}
+	
 	public Integer getNombreParticipant() {
 		return nombreParticipant;
 	}

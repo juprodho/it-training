@@ -19,6 +19,9 @@ public class Theme {
 	
 	@Column(name="nom")
 	private String nom;
+	
+	@Column(name="description")
+	private String description;
 
 	public Long getId() {
 		return id;
@@ -35,6 +38,16 @@ public class Theme {
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
+	
 	
 	
 

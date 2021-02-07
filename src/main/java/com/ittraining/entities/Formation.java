@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "formations")
+@Table(name = "formation")
 public class Formation {
 	
 	@Id
@@ -17,10 +17,6 @@ public class Formation {
 	
 	@Column(name="titre")
 	private String titre;
-	
-	@Column(name="description")
-	private String description;
-	
 	
 	public Long getId() {
 		return id;
@@ -34,12 +30,7 @@ public class Formation {
 	public void setTitre(String titre) {
 		this.titre = titre;
 	}
-	public String getDescription() {
-		return description;
-	}
-	public void setDescription(String description) {
-		this.description = description;
-	}
+	
 	
 	
 

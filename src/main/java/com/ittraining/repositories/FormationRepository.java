@@ -10,6 +10,6 @@ public interface FormationRepository extends JpaRepository<Formation, Long> {
 
 	public List<Formation> findByTitre(String titre);
 
-	public List<Formation> findByDescription(String description);
+	
 
 }
