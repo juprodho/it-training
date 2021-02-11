@@ -5,7 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -24,12 +26,10 @@ public class Formateur {
 		@Column(name = "note")
 		private int note;
 		
-		/*@ManyToMany
+		@OneToMany
 		@JoinTable(
-				name = "formateur_has_eval_session",
 				joinColumns = @JoinColumn(name = "formateur_id"),
-				inverseJoinColumns = @JoinColumn(name = "eval_session_id"))*/
-		//private List<eval_session> eval = new ArrayList<>();
+				inverseJoinColumns = @JoinColumn(name="test_formateur_id"))
 
 		public Long getId() {
 			return id;

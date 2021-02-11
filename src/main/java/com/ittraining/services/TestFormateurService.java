@@ -7,34 +7,31 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import com.ittraining.entities.Formateur;
-import com.ittraining.repositories.FormateurRepository;
+import com.ittraining.entities.TestFormateur;
+import com.ittraining.repositories.TestFormateurRepository;
 
 @Service
-public class FormateurService {
-
+public class TestFormateurService {
+	
 	@Autowired
-	private FormateurRepository repository;
+	private TestFormateurRepository repository;
 
-	public Formateur save(Formateur entity) {
+	public TestFormateur save(TestFormateur entity) {
 		return repository.save(entity);
 	}
 
-	public List<Formateur> findAll() {
+	public List<TestFormateur> findAll() {
 		return repository.findAll();
 	}
 
-	public List<Formateur> findByNom(String nom) {
-		return repository.findByNom(nom);
+	public List<TestFormateur> findByTitre(String titre) {
+		return repository.findByTitre(titre);
 	}
 
-	public List<Formateur> findByNote(int note) {
-		return repository.findByNote(note);
-	}
-
-	public Formateur findById(Long id) {
+	public TestFormateur findById(Long id) {
 		return repository.findById(id)
 				.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
 
 	}
 }
+

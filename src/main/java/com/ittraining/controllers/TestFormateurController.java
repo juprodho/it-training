@@ -11,34 +11,30 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ittraining.entities.Formateur;
-import com.ittraining.services.FormateurService;
+import com.ittraining.entities.TestFormateur;
+import com.ittraining.services.TestFormateurService;
 
 @RestController
-@RequestMapping("formateur")
+@RequestMapping("test_formateur")
 @CrossOrigin
-public class FormateurController {
-	
+public class TestFormateurController {
+
 	@Autowired
-	private FormateurService service;
-	
+	private TestFormateurService service;
+
 	@PostMapping("")
-	public Formateur save(@RequestBody Formateur entity) {
+	public TestFormateur save(@RequestBody TestFormateur entity) {
 		return this.service.save(entity);
 	}
 
-	@GetMapping("nom/{nom}")
-	public List<Formateur> findByNom(@PathVariable String nom) {
-		return service.findByNom(nom);
-	}
+	@GetMapping("titre/{titre}")
+	public List<TestFormateur> findByTitre(@PathVariable String titre) {
+		return service.findByTitre(titre);
 
-	@GetMapping("note/{note}")
-	public List<Formateur> findByNote(@PathVariable int note) {
-		return service.findByNote(note);
 	}
-
+	
 	@GetMapping("{id}")
-	public Formateur findById(@PathVariable Long id) {
+	public TestFormateur findById(@PathVariable Long id) {
 		return service.findById(id);
 	}
 
