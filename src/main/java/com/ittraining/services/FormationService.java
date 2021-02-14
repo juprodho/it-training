@@ -26,6 +26,7 @@ public class FormationService {
 		return repository.findAll();
 	}
 
+	
 	public List<Formation> findByTitre(String titre) {
 		return repository.findByTitre(titre);
 	}

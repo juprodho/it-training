@@ -10,28 +10,28 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.ittraining.entities.Formation;
 import com.ittraining.services.FormationService;
 
-@Controller
+@RestController
 @RequestMapping("formations")
 @CrossOrigin
 public class FormationController {
 
 	@Autowired
 	private FormationService service;
-
 	@GetMapping("")
-	public List<Formation> findAll() {
+	public List<Formation> findAll(){
 		return this.service.findAll();
 	}
-	
 
 	@PostMapping("")
 	public Formation save(@RequestBody Formation entity) {
 		return this.service.save(entity);
 	}
+	
 	
 	@GetMapping("titre/{titre}")
 	public List<Formation> findByTitre(@PathVariable String titre) {
