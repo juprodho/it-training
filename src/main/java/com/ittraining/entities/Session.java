@@ -9,6 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.CreationTimestamp;
+
+import jdk.jfr.Timestamp;
+
 @Entity
 @Table
 public class Session {
@@ -24,9 +28,11 @@ public class Session {
 	private Integer numero;
 	
 	@Column(name="date_debut")
+	@Timestamp
 	private Date dateDebut;
 	
 	@Column(name="date_fin")
+	@Timestamp
 	private Date dateFin;
 	
 	@Column(name="prix")

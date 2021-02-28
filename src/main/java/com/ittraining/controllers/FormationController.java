@@ -22,6 +22,7 @@ public class FormationController {
 
 	@Autowired
 	private FormationService service;
+	
 	@GetMapping("")
 	public List<Formation> findAll(){
 		return this.service.findAll();
@@ -31,6 +32,7 @@ public class FormationController {
 	public Formation save(@RequestBody Formation entity) {
 		return this.service.save(entity);
 	}
+	
 	
 	
 	@GetMapping("titre/{titre}")

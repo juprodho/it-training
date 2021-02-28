@@ -1,7 +1,8 @@
 package com.ittraining.entities;
 
-import java.util.ArrayList;
 
+
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -13,8 +14,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+
 
 
 @Entity
@@ -41,27 +43,25 @@ public class Formation {
 		this.titre = titre;
 	}
 	
-	@OneToMany(
-			cascade = CascadeType.ALL,
-			orphanRemoval = true
-			)
-	@JoinColumn(name = "formation_id")
-	private List<Session> sessions = new ArrayList<>();
-
-	public List<Session> getSessions() {
-		return sessions;
-	}
-	public void setSessions(List<Session> sessions) {
-		this.sessions = sessions;
-	}
-	
 	@ManyToMany
 	@JoinTable(
 			name = "formations_possede_theme",
 			joinColumns = @JoinColumn(name="formation_id"),
-			inverseJoinColumns = @JoinColumn(name="theme_id"))
-	
+			inverseJoinColumns = @JoinColumn(name="theme_id")
+			)
 	private List<Theme> themes = new ArrayList<>();
+
+	public List<Theme> getThemes() {
+		return themes;
+	}
+	public void setThemes(List<Theme> themes) {
+		this.themes = themes;
+	}
+	
+	
+	
+	
+	
 	
 
 }
