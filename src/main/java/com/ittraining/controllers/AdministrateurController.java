@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ittraining.dto.DemandeAuth;
+import com.ittraining.dto.MessageAuth;
 import com.ittraining.entities.Administrateur;
 import com.ittraining.services.AdministrateurService;
 
@@ -40,8 +42,8 @@ public class AdministrateurController {
 	}
 		
 	@PostMapping("login")
-	public Administrateur findByEmailAndMotDePasse(@RequestBody String email, String motDePasse) {
-		return this.service.findByEmailAndMotDePasse(email, motDePasse);
+	public MessageAuth signin(@RequestBody DemandeAuth auth) {
+		return this.service.signin(auth);
 	}
 	
 	@DeleteMapping("supprimer/{id}")
