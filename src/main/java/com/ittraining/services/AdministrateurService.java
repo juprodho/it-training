@@ -32,5 +32,13 @@ public class AdministrateurService {
 	public Administrateur findByEmailAndMotDePasse(String email, String motDePasse) {
 		return this.repository.findByEmailAndMotDePasse(email, motDePasse);
 	}
+	
+	public void deleteById(Long id) {
+		this.repository.deleteById(id);
+	}
+	
+	public Administrateur update(Administrateur administrateur, Long id) {
+		return this.repository.updateAdministrateur(administrateur, id);
+	}
 
 }
