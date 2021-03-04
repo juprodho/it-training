@@ -19,12 +19,17 @@ import com.ittraining.entities.Administrateur;
 import com.ittraining.services.AdministrateurService;
 
 @RestController
-@RequestMapping("administrateurs")
 @CrossOrigin
+@RequestMapping("administrateurs")
 public class AdministrateurController {
 	
 	@Autowired
 	private AdministrateurService service;
+	
+	@PostMapping("ajout")
+	public Administrateur save(@RequestBody Administrateur entity) {
+		return this.service.save(entity);
+	}
 	
 	@GetMapping("{id}")
 	public Administrateur findById(@PathVariable Long id) {
@@ -35,33 +40,23 @@ public class AdministrateurController {
 	public List<Administrateur> findAll() {
 		return this.service.findAll();
 	}
-	
-	@PostMapping("inscription")
-	public Administrateur save(@RequestBody Administrateur entity) {
-		return this.service.save(entity);
-	}
 		
 	@PostMapping("login")
 	public MessageAuth signin(@RequestBody DemandeAuth auth) {
 		return this.service.signin(auth);
 	}
 	
-	@DeleteMapping("supprimer/{id}")
-	public void delete(@PathVariable Long id) {
-		Administrateur adminFound = this.service.findById(id);
-		if (adminFound != null) 
-			this.service.deleteById(id);		
+	@DeleteMapping("{id}")
+	public void deleteById(@PathVariable Long id) {
+		this.service.deleteById(id);
 	}
 	
+	
 	@PutMapping("editer/{id}")
-	public Administrateur updateAdministrateur(@RequestBody Administrateur administrateur, @PathVariable Long id) {
-		Administrateur adminFound = this.service.findById(id);
-		if (adminFound != null) {
-			administrateur.setId(id);
-			return this.service.save(administrateur);
-		}
-		return null;
+	public void update(@RequestBody Administrateur administrateur, @PathVariable Long id) {
+		this.service.updateAdministrateur(administrateur, id);
 	}
+	
 	
 
 }

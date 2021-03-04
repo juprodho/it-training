@@ -16,6 +16,7 @@ import com.ittraining.repositories.AdministrateurRepository;
 @Service
 public class AdministrateurService {
 	
+	
 	@Autowired
 	private AdministrateurRepository repository;
 	
@@ -42,11 +43,19 @@ public class AdministrateurService {
 	}
 	
 	public void deleteById(Long id) {
-		this.repository.deleteById(id);
+		Optional<Administrateur> adminFound = this.repository.findById(id);
+		if (adminFound.isPresent()) 
+			this.repository.deleteById(id);
 	}
 	
-	public Administrateur update(Administrateur administrateur, Long id) {
-		return this.repository.updateAdministrateur(administrateur, id);
+	
+	public void updateAdministrateur(Administrateur administrateur, Long id) {
+		Optional<Administrateur> adminFound = this.repository.findById(id);
+		if (adminFound.isPresent()) {
+			administrateur.setId(id);
+			 this.repository.save(administrateur);
+		}
 	}
+
 
 }
