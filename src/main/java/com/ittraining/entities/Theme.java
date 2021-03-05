@@ -53,14 +53,14 @@ public class Theme {
 		this.description = description;
 	}
 	
-	@OneToMany(
-			cascade = CascadeType.ALL,
-			orphanRemoval = true
-			)
-	
-	@JoinColumn(name = "theme_id")
-	
-	private List<Theme> themes = new ArrayList<>();
+//	@OneToMany(
+//			cascade = CascadeType.ALL,
+//			orphanRemoval = true
+//			)
+//	
+//	@JoinColumn(name = "theme_id")
+//	
+//	private List<Theme> themes = new ArrayList<>();
 	
 	
 	
