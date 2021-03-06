@@ -35,6 +35,7 @@ public class AdministrateurService {
 	
 	public MessageAuth signin(DemandeAuth auth) {
 		Optional<Administrateur> adminOptional = this.repository.findByEmailAndMotDePasse(auth.getEmail(), auth.getPassword());
+		System.out.println(adminOptional);
 		if (adminOptional.isPresent()) {
 			Administrateur administrateur = adminOptional.get();
 			return new MessageAuth(administrateur.getId(), "Authentification de l'administrateur réussie", true);
