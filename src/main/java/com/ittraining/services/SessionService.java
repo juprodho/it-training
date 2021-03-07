@@ -22,8 +22,8 @@ public class SessionService {
 	}
 
 	public Session save(Session entity) {
-		int numero = 0;
 		
+		int numero = 0;
 		return repository.save(entity);
 	}
 

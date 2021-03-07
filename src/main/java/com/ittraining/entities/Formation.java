@@ -4,6 +4,7 @@ package com.ittraining.entities;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -14,6 +15,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -58,7 +60,19 @@ public class Formation {
 		this.themes = themes;
 	}
 	
+	//jointutre formation session OnetoMany
 	
+//	@OneToMany(cascade =  CascadeType.ALL, mappedBy = "formation")
+//	
+//   
+//	private List<Session> sessions = new ArrayList<>();
+//	
+//	public List<Session> getSessions() {
+//		return sessions;
+//	}
+//	public void setSessions(List<Session> sessions) {
+//		this.sessions = sessions;
+//	}
 	
 	
 	

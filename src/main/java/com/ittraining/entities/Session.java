@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -14,7 +16,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import jdk.jfr.Timestamp;
 
 @Entity
-@Table
+@Table(name="session")
 public class Session {
 
 	@Id
@@ -28,11 +30,11 @@ public class Session {
 	private Integer numero;
 	
 	@Column(name="date_debut")
-	@Timestamp
+	@CreationTimestamp
 	private Date dateDebut;
 	
 	@Column(name="date_fin")
-	@Timestamp
+	@CreationTimestamp
 	private Date dateFin;
 	
 	@Column(name="prix")
@@ -88,6 +90,18 @@ public class Session {
 		this.nombreParticipant = nombreParticipant;
 	}
 	
-	
+//	@ManyToOne
+//	@JoinColumn(name= "formation_id", nullable = false)
+//	private Formation formation;
+//
+//
+//
+//	public Formation getFormation() {
+//		return formation;
+//	}
+//	public void setFormation(Formation formation) {
+//		this.formation = formation;
+//	}
+//	
 	
 }
