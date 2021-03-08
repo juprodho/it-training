@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -57,6 +58,18 @@ public class Formation {
 	public void setThemes(List<Theme> themes) {
 		this.themes = themes;
 	}
+	
+	@OneToMany (cascade = CascadeType.ALL, mappedBy = "formation")
+	
+	private List<Session> sessions = new ArrayList<>();
+
+	public List<Session> getSessions() {
+		return sessions;
+	}
+	public void setSessions(List<Session> sessions) {
+		this.sessions = sessions;
+	}
+	
 	
 	
 	

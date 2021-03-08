@@ -15,7 +15,7 @@ import com.ittraining.entities.Session;
 import com.ittraining.services.SessionService;
 
 @RestController
-@RequestMapping("sessions")
+@RequestMapping("session")
 @CrossOrigin
 public class SessionController {
 

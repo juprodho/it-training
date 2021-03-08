@@ -22,8 +22,6 @@ public class SessionService {
 	}
 
 	public Session save(Session entity) {
-		int numero = 0;
-		
 		return repository.save(entity);
 	}
 
@@ -35,6 +33,7 @@ public class SessionService {
 		return repository.findById(id)
 				.orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND));
 	}
+	
 	
 	
 }
