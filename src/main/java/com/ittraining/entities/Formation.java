@@ -72,7 +72,7 @@ public class Formation {
 		this.themes = themes;
 	}
 	
-	@JsonIgnore
+	
 	@OneToMany(mappedBy = "formation")
 	private List<Session> sessions = new ArrayList<>();
 

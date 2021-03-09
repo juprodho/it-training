@@ -84,7 +84,7 @@ public class Session {
 	}
 
 
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name="formation_id", referencedColumnName = "id")
 	private Formation formation;
 
