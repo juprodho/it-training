@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.ittraining.dto.DemandeAuth;
@@ -42,6 +43,14 @@ public class AdministrateurService {
 		}
 		return new MessageAuth(-1L, "Echec de l'authentificaton", false);
 	}
+		
+	public void updateAdministrateur(Administrateur administrateur, Long id) {
+		Optional<Administrateur> adminFound = this.repository.findById(id);
+		if (adminFound.isPresent()) {
+			administrateur.setId(id);
+			 this.repository.save(administrateur);
+		}
+	}
 	
 	public void deleteById(Long id) {
 		Optional<Administrateur> adminFound = this.repository.findById(id);
@@ -49,13 +58,8 @@ public class AdministrateurService {
 			this.repository.deleteById(id);
 	}
 	
-	
-	public void updateAdministrateur(Administrateur administrateur, Long id) {
-		Optional<Administrateur> adminFound = this.repository.findById(id);
-		if (adminFound.isPresent()) {
-			administrateur.setId(id);
-			 this.repository.save(administrateur);
-		}
+	public void delete(Administrateur administrateur) {
+		this.repository.delete(administrateur);
 	}
 
 

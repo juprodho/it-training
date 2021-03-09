@@ -45,18 +45,20 @@ public class AdministrateurController {
 	public MessageAuth signin(@RequestBody DemandeAuth auth) {
 		return this.service.signin(auth);
 	}
+		
+	@PutMapping("editer/{id}")
+	public void update(@RequestBody Administrateur administrateur, @PathVariable Long id) {
+		this.service.updateAdministrateur(administrateur, id);
+	}
 	
 	@DeleteMapping("{id}")
 	public void deleteById(@PathVariable Long id) {
 		this.service.deleteById(id);
 	}
 	
-	
-	@PutMapping("editer/{id}")
-	public void update(@RequestBody Administrateur administrateur, @PathVariable Long id) {
-		this.service.updateAdministrateur(administrateur, id);
+	@DeleteMapping("")
+	public void delete(@RequestBody Administrateur administrateur) {
+		this.service.delete(administrateur);
 	}
 	
-	
-
 }
