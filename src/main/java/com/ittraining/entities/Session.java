@@ -2,6 +2,7 @@ package com.ittraining.entities;
 
 
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -82,24 +83,9 @@ public class Session {
 		this.lieu = lieu;
 	}
 
-	//	@ManyToOne
-	//	@JoinColumn(name= "formation_id", nullable = false)
-	//	private Formation formation;
-	//
-	//
-	//
-	//	public Formation getFormation() {
-	//		return formation;
-	//	}
-	//	public void setFormation(Formation formation) {
-	//		this.formation = formation;
-	//	}
-	//
 
-
-
-	@ManyToOne
-	@JoinColumn(name="formation_id", nullable = false)
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="formation_id", referencedColumnName = "id")
 	private Formation formation;
 
 
@@ -109,8 +95,5 @@ public class Session {
 	public void setFormation(Formation formation) {
 		this.formation = formation;
 	}
-
-	
-
 
 }

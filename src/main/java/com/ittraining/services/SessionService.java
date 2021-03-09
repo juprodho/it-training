@@ -22,11 +22,6 @@ public class SessionService {
 	}
 
 	public Session save(Session entity) {
-<<<<<<< HEAD
-		
-		int numero = 0;
-=======
->>>>>>> ilias
 		return repository.save(entity);
 	}
 

@@ -4,9 +4,7 @@ package com.ittraining.entities;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,6 +15,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 
@@ -72,9 +72,8 @@ public class Formation {
 		this.themes = themes;
 	}
 	
-	
-	@OneToMany (cascade = CascadeType.ALL, mappedBy = "formation")
-	
+	@JsonIgnore
+	@OneToMany(mappedBy = "formation")
 	private List<Session> sessions = new ArrayList<>();
 
 	public List<Session> getSessions() {
@@ -83,23 +82,6 @@ public class Formation {
 	public void setSessions(List<Session> sessions) {
 		this.sessions = sessions;
 	}
-	
-	
-	
-//	@OneToMany(cascade =  CascadeType.ALL, mappedBy = "formation")
-//	
-//   
-//	private List<Session> sessions = new ArrayList<>();
-//	
-//	public List<Session> getSessions() {
-//		return sessions;
-//	}
-//	public void setSessions(List<Session> sessions) {
-//		this.sessions = sessions;
-//	}
-	
-	
-	
-	
+		
 
 }
