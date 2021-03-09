@@ -32,6 +32,9 @@ public class Formation {
 	@Column(name="titre")
 	private String titre;
 	
+	@Column(name="description")
+	private String description;
+	
 	public Long getId() {
 		return id;
 	}
@@ -45,6 +48,15 @@ public class Formation {
 		this.titre = titre;
 	}
 	
+	
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+
 	@ManyToMany
 	@JoinTable(
 			name = "formations_possede_theme",
@@ -60,7 +72,19 @@ public class Formation {
 		this.themes = themes;
 	}
 	
-	//jointutre formation session OnetoMany
+	
+	@OneToMany (cascade = CascadeType.ALL, mappedBy = "formation")
+	
+	private List<Session> sessions = new ArrayList<>();
+
+	public List<Session> getSessions() {
+		return sessions;
+	}
+	public void setSessions(List<Session> sessions) {
+		this.sessions = sessions;
+	}
+	
+	
 	
 //	@OneToMany(cascade =  CascadeType.ALL, mappedBy = "formation")
 //	

@@ -1,6 +1,6 @@
 package com.ittraining.entities;
 
-import java.util.Date;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,60 +21,53 @@ public class Session {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
-	
+	private long id;
+
 	@Column(name="titre")
 	private String titre;
-	
-	@Column(name="numero")
-	private Integer numero;
-	
+
 	@Column(name="date_debut")
-	@CreationTimestamp
-	private Date dateDebut;
+
+	private String date_debut;
+
 	
+
 	@Column(name="date_fin")
-	@CreationTimestamp
-	private Date dateFin;
-	
+	private String date_fin;
+
 	@Column(name="prix")
 	private String prix;
-	
-	
-	@Column(name="nombre_participant")
-	private Integer nombreParticipant;
-	
-	
-	
+
+	@Column(name="lieu")
+	private String lieu;
+
+
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
 	public String getTitre() {
 		return titre;
 	}
 	public void setTitre(String titre) {
 		this.titre = titre;
 	}
-	public Long getId() {
-		return id;
+
+
+
+	public String getDate_debut() {
+		return date_debut;
 	}
-	public void setId(Long id) {
-		this.id = id;
+	public void setDate_debut(String date_debut) {
+		this.date_debut = date_debut;
 	}
-	public Integer getNumero() {
-		return numero;
+	public String getDate_fin() {
+		return date_fin;
 	}
-	public void setNumero(Integer numero) {
-		this.numero = numero;
-	}
-	public Date getDateDebut() {
-		return dateDebut;
-	}
-	public void setDateDebut(Date dateDebut) {
-		this.dateDebut = dateDebut;
-	}
-	public Date getDateFin() {
-		return dateFin;
-	}
-	public void setDateFin(Date dateFin) {
-		this.dateFin = dateFin;
+	public void setDate_fin(String date_fin) {
+		this.date_fin = date_fin;
 	}
 	public String getPrix() {
 		return prix;
@@ -82,26 +75,42 @@ public class Session {
 	public void setPrix(String prix) {
 		this.prix = prix;
 	}
-	
-	public Integer getNombreParticipant() {
-		return nombreParticipant;
+	public String getLieu() {
+		return lieu;
 	}
-	public void setNombreParticipant(Integer nombreParticipant) {
-		this.nombreParticipant = nombreParticipant;
+	public void setLieu(String lieu) {
+		this.lieu = lieu;
 	}
+
+	//	@ManyToOne
+	//	@JoinColumn(name= "formation_id", nullable = false)
+	//	private Formation formation;
+	//
+	//
+	//
+	//	public Formation getFormation() {
+	//		return formation;
+	//	}
+	//	public void setFormation(Formation formation) {
+	//		this.formation = formation;
+	//	}
+	//
+
+
+
+	@ManyToOne
+	@JoinColumn(name="formation_id", nullable = false)
+	private Formation formation;
+
+
+	public Formation getFormation() {
+		return formation;
+	}
+	public void setFormation(Formation formation) {
+		this.formation = formation;
+	}
+
 	
-//	@ManyToOne
-//	@JoinColumn(name= "formation_id", nullable = false)
-//	private Formation formation;
-//
-//
-//
-//	public Formation getFormation() {
-//		return formation;
-//	}
-//	public void setFormation(Formation formation) {
-//		this.formation = formation;
-//	}
-//	
-	
+
+
 }
