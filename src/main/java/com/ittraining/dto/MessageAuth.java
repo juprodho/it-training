@@ -11,6 +11,6 @@ public class MessageAuth {
 	
 	private Long adminId;
 	private String message;
-	private boolean isAuth;
+	private Boolean isAuth;
 
 }
