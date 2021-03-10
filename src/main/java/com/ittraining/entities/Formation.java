@@ -18,6 +18,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 
 
@@ -73,8 +75,8 @@ public class Formation {
 	}
 	
 	
-	@OneToMany (cascade = CascadeType.ALL, mappedBy = "formation")
 	
+	@OneToMany(mappedBy = "formation")
 	private List<Session> sessions = new ArrayList<>();
 
 	public List<Session> getSessions() {

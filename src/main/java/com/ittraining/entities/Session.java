@@ -2,6 +2,7 @@ package com.ittraining.entities;
 
 
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,8 +24,7 @@ public class Session {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
-	@Column(name="titre")
-	private String titre;
+	
 
 	@Column(name="date_debut")
 
@@ -48,12 +48,7 @@ public class Session {
 	public void setId(long id) {
 		this.id = id;
 	}
-	public String getTitre() {
-		return titre;
-	}
-	public void setTitre(String titre) {
-		this.titre = titre;
-	}
+	
 
 
 
@@ -98,8 +93,8 @@ public class Session {
 
 
 
-	@ManyToOne
-	@JoinColumn(name="formation_id", nullable = false)
+	@ManyToOne()
+	@JoinColumn(name="formation_id", referencedColumnName = "id")
 	private Formation formation;
 
 

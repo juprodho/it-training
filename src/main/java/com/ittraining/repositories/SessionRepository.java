@@ -8,5 +8,5 @@ import com.ittraining.entities.Session;
 
 public interface SessionRepository extends JpaRepository<Session, Long> {
 
-	public  List<Session> findByTitre(String titre);
+	
 }

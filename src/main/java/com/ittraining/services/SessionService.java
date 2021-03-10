@@ -17,16 +17,13 @@ public class SessionService {
 	@Autowired
 	private SessionRepository repository;
 
-	public List<Session> findByTitre(String titre) {
-		return repository.findByTitre(titre);
-	}
+	
 
 	public Session save(Session entity) {
-<<<<<<< HEAD
+
 		
 		int numero = 0;
-=======
->>>>>>> ilias
+
 		return repository.save(entity);
 	}
 
