@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ittraining.dto.RecupNewFormation;
 import com.ittraining.entities.Formation;
 import com.ittraining.services.FormationService;
 
@@ -24,10 +25,11 @@ public class FormationController {
 	private FormationService service;
 	
 	@GetMapping("")
-	public List<Formation> findAll(){
-		return this.service.findAll();
+	public List<RecupNewFormation> findAll(){
+		List<RecupNewFormation> recupNewFormations = service.findAll();	
+		return recupNewFormations;
 	}
-
+	
 	@PostMapping("")
 	public Formation save(@RequestBody Formation entity) {
 		return this.service.save(entity);
