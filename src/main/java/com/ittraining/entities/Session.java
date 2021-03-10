@@ -77,23 +77,14 @@ public class Session {
 		this.lieu = lieu;
 	}
 
-	//	@ManyToOne
-	//	@JoinColumn(name= "formation_id", nullable = false)
-	//	private Formation formation;
-	//
-	//
-	//
-	//	public Formation getFormation() {
-	//		return formation;
-	//	}
-	//	public void setFormation(Formation formation) {
-	//		this.formation = formation;
-	//	}
-	//
 
+<<<<<<< HEAD
 
 
 	@ManyToOne()
+=======
+	@ManyToOne(cascade = CascadeType.ALL)
+>>>>>>> 160873c84ff04c7fb1f195daa505b4d901877cb5
 	@JoinColumn(name="formation_id", referencedColumnName = "id")
 	private Formation formation;
 
@@ -104,8 +95,5 @@ public class Session {
 	public void setFormation(Formation formation) {
 		this.formation = formation;
 	}
-
-	
-
 
 }

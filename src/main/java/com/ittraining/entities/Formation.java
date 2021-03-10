@@ -4,9 +4,7 @@ package com.ittraining.entities;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -74,8 +72,12 @@ public class Formation {
 		this.themes = themes;
 	}
 	
+<<<<<<< HEAD
 	
 	
+=======
+	@JsonIgnore
+>>>>>>> 160873c84ff04c7fb1f195daa505b4d901877cb5
 	@OneToMany(mappedBy = "formation")
 	private List<Session> sessions = new ArrayList<>();
 
@@ -85,23 +87,6 @@ public class Formation {
 	public void setSessions(List<Session> sessions) {
 		this.sessions = sessions;
 	}
-	
-	
-	
-//	@OneToMany(cascade =  CascadeType.ALL, mappedBy = "formation")
-//	
-//   
-//	private List<Session> sessions = new ArrayList<>();
-//	
-//	public List<Session> getSessions() {
-//		return sessions;
-//	}
-//	public void setSessions(List<Session> sessions) {
-//		this.sessions = sessions;
-//	}
-	
-	
-	
-	
+		
 
 }
