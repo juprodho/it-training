@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ittraining.dto.SessionDTO;
 import com.ittraining.entities.Session;
 import com.ittraining.services.SessionService;
 
@@ -33,7 +34,7 @@ public class SessionController {
 	}
 
 	@GetMapping("")
-	public List<Session> findAll() {
+	public List<SessionDTO> findAll() {
 		return service.findAll();
 	}
 

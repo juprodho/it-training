@@ -2,12 +2,14 @@ package com.ittraining.services;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import com.ittraining.dto.SessionDTO;
 import com.ittraining.entities.Session;
 import com.ittraining.repositories.SessionRepository;
 
@@ -16,6 +18,8 @@ public class SessionService {
 	
 	@Autowired
 	private SessionRepository repository;
+	
+
 
 	public List<Session> findByTitre(String titre) {
 		return repository.findByTitre(titre);
@@ -25,8 +29,12 @@ public class SessionService {
 		return repository.save(entity);
 	}
 
-	public List<Session> findAll() {
-		return repository.findAll();
+	public List<SessionDTO> findAll() {
+		return ((List<Session>) repository
+				.findAll())
+				.stream()
+				.map(this::convertToSessionDto)
+				.collect(Collectors.toList());
 	}
 
 	public Session findById(Long id) {
@@ -34,6 +42,13 @@ public class SessionService {
 				.orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND));
 	}
 	
+	private SessionDTO convertToSessionDto(Session session) {
+		SessionDTO sessionDto = new SessionDTO(
+				session.getId(), session.getDate_debut(), 
+				session.getDate_fin(),session.getPrix(),
+				session.getLieu());
+		return sessionDto;
+	}	
 	
 	
 }
