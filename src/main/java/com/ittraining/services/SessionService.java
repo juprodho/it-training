@@ -21,11 +21,15 @@ public class SessionService {
 	
 
 
-	public List<Session> findByTitre(String titre) {
-		return repository.findByTitre(titre);
-	}
+	
 
 	public Session save(Session entity) {
+
+
+		
+		int numero = 0;
+
+
 		return repository.save(entity);
 	}
 

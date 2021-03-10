@@ -72,7 +72,8 @@ public class Formation {
 		this.themes = themes;
 	}
 	
-	
+
+
 	@OneToMany(mappedBy = "formation")
 	private List<Session> sessions = new ArrayList<>();
 

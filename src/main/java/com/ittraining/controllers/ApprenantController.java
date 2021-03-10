@@ -11,33 +11,44 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ittraining.dto.SessionDTO;
-import com.ittraining.entities.Session;
-import com.ittraining.services.SessionService;
+import com.ittraining.dto.DemandeApprenantAuth;
+import com.ittraining.dto.MessageApprenantAuth;
+import com.ittraining.entities.Apprenant;
+import com.ittraining.services.ApprenantService;
 
 @RestController
-@RequestMapping("session")
+@RequestMapping("apprenants")
 @CrossOrigin
-public class SessionController {
+public class ApprenantController {
 
 	@Autowired
-	private SessionService service;
-
-
+	private ApprenantService service;
+	
 	@PostMapping("")
-	public Session save(@RequestBody Session entity) {
+	public Apprenant save(@RequestBody Apprenant entity) {
 		return service.save(entity);
 	}
 
+
 	@GetMapping("")
-	public List<SessionDTO> findAll() {
+	public List<Apprenant> findAll() {
 		return service.findAll();
 	}
 
-	@GetMapping("{id}")
-	public Session findById(@PathVariable Long id) {
+	
+	
+
+	
+    @GetMapping("{id}")
+	public Apprenant findById(@PathVariable Long id) {
 		return service.findById(id);
 	}
+    
+    @PostMapping("signin")
+    public MessageApprenantAuth signin(@RequestBody DemandeApprenantAuth auth) {
+    	return service.signin(auth);
+    }
+    
 	
 	
 }
