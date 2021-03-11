@@ -36,6 +36,17 @@ public class SessionService {
 				.orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND));
 	}
 	
+	public SessionDTO findByIdToDTO(Long id) {
+		Session session = this.findById(id);
+		SessionDTO sessionDto = new SessionDTO();
+		sessionDto.setId(session.getId());
+		sessionDto.setDateDebut(session.getDate_debut());
+		sessionDto.setDateFin(session.getDate_fin());
+		sessionDto.setPrix(session.getPrix());
+		sessionDto.setLieu(session.getLieu());
+		return sessionDto;
+	}
+	
 	private SessionDTO convertToSessionDto(Session session) {
 		SessionDTO sessionDto = new SessionDTO(
 				session.getId(), session.getDate_debut(), 
