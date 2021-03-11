@@ -34,9 +34,15 @@ public class SessionController {
 		return service.findAll();
 	}
 
+//	@GetMapping("{id}")
+//	public Session findById(@PathVariable Long id) {
+//		return service.findById(id);
+//	}
+	
 	@GetMapping("{id}")
-	public Session findById(@PathVariable Long id) {
-		return service.findById(id);
+	public List<SessionDTO> findByFormationId(@PathVariable Long id) {
+		List<SessionDTO> sessionDTO = this.service.findByFormationIdDTO(id);
+		return sessionDTO;
 	}
 	
 	

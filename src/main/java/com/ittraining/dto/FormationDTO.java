@@ -4,15 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- *DTO pour l'objet formation
- */
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class RecupNewFormation {
-	
+public class FormationDTO {
+
 	private Long formationId;
 	private String titre;
 	private String description;

@@ -8,7 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import com.ittraining.dto.RecupNewFormation;
+import com.ittraining.dto.FormationDTO;
 import com.ittraining.entities.Formation;
 import com.ittraining.repositories.FormationRepository;
 
@@ -22,7 +22,7 @@ public class FormationService {
 		return repository.save(entity);
 	}
 
-	public List<RecupNewFormation> findAll() {
+	public List<FormationDTO> findAll() {
 		return ((List<Formation>)repository
 				.findAll())
 				.stream()
@@ -30,8 +30,8 @@ public class FormationService {
 							.collect(Collectors.toList());
 	}
 
-	private RecupNewFormation convertToFormation(Formation formation) {
-		RecupNewFormation recupNewFormation = new RecupNewFormation(
+	private FormationDTO convertToFormation(Formation formation) {
+		FormationDTO recupNewFormation = new FormationDTO(
 				formation.getId(),
 				formation.getTitre(),
 				formation.getDescription()
@@ -49,6 +49,16 @@ public class FormationService {
 	public Formation findById(Long id) {
 		return repository.findById(id)
 				.orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND));
+	}
+	
+	public FormationDTO findByIdToDTO(Long id) {
+		Formation formation = this.findById(id);
+		if(formation!=null) {
+			return this.convertToFormation(formation);
+		} else {
+			return null;
+		}
+		
 	}
 
 

@@ -3,7 +3,6 @@ package com.ittraining.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ittraining.dto.RecupNewFormation;
+import com.ittraining.dto.FormationDTO;
 import com.ittraining.entities.Formation;
 import com.ittraining.services.FormationService;
 
@@ -25,9 +24,9 @@ public class FormationController {
 	private FormationService service;
 	
 	@GetMapping("")
-	public List<RecupNewFormation> findAll(){
-		List<RecupNewFormation> recupNewFormations = service.findAll();	
-		return recupNewFormations;
+	public List<FormationDTO> findAll(){
+		List<FormationDTO> formationDTO = service.findAll();	
+		return formationDTO;
 	}
 	
 	@PostMapping("")
@@ -44,8 +43,8 @@ public class FormationController {
 	
 
 	@GetMapping("{id}")
-	public Formation findById(@PathVariable Long id) {
-		return service.findById(id);
+	public FormationDTO findById(@PathVariable Long id) {
+		return service.findByIdToDTO(id);
 	}
 
 	
