@@ -2,7 +2,6 @@ package com.ittraining.entities;
 
 
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,10 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.CreationTimestamp;
-
-import jdk.jfr.Timestamp;
 
 @Entity
 @Table(name="session")
@@ -79,6 +74,7 @@ public class Session {
 
 
 
+	@ManyToOne
 	@JoinColumn(name="formation_id", referencedColumnName = "id")
 	private Formation formation;
 

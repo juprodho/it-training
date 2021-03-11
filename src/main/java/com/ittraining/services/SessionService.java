@@ -18,18 +18,8 @@ public class SessionService {
 	
 	@Autowired
 	private SessionRepository repository;
-	
-
-
-	
 
 	public Session save(Session entity) {
-
-
-		
-		int numero = 0;
-
-
 		return repository.save(entity);
 	}
 
@@ -46,11 +36,19 @@ public class SessionService {
 				.orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND));
 	}
 	
+	public SessionDTO findByIdToDTO(Long id) {
+		Session session = this.findById(id);
+		SessionDTO sessionDTO = this.convertToSessionDto(session);
+		return sessionDTO;
+	}
+	
 	private SessionDTO convertToSessionDto(Session session) {
-		SessionDTO sessionDto = new SessionDTO(
-				session.getId(), session.getDate_debut(), 
-				session.getDate_fin(),session.getPrix(),
-				session.getLieu());
+		SessionDTO sessionDto = new SessionDTO();
+		sessionDto.setId(session.getId());
+		sessionDto.setDateDebut(session.getDate_debut());
+		sessionDto.setDateFin(session.getDate_fin());
+		sessionDto.setPrix(session.getPrix());
+		sessionDto.setLieu(session.getLieu());
 		return sessionDto;
 	}	
 	
