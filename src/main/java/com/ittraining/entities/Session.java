@@ -79,6 +79,7 @@ public class Session {
 
 
 
+	@ManyToOne
 	@JoinColumn(name="formation_id", referencedColumnName = "id")
 	private Formation formation;
 
