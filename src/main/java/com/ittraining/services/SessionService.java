@@ -35,7 +35,22 @@ public class SessionService {
 	public Session findById(Long id) {
 		return repository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
 	}
+<<<<<<< HEAD
 
+=======
+	
+	public SessionDTO findByIdToDTO(Long id) {
+		Session session = this.findById(id);
+		SessionDTO sessionDto = new SessionDTO();
+		sessionDto.setId(session.getId());
+		sessionDto.setDateDebut(session.getDate_debut());
+		sessionDto.setDateFin(session.getDate_fin());
+		sessionDto.setPrix(session.getPrix());
+		sessionDto.setLieu(session.getLieu());
+		return sessionDto;
+	}
+	
+>>>>>>> fatima
 	private SessionDTO convertToSessionDto(Session session) {
 		SessionDTO sessionDto = new SessionDTO(session.getId(), session.getDate_debut(), session.getDate_fin(),
 				session.getPrix(), session.getLieu());
