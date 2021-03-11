@@ -18,7 +18,11 @@ public class SessionService {
 	@Autowired
 	private SessionRepository repository;
 
-	public Session save(Session entity) {
+
+
+
+	
+	public Session save(Session entity) {		
 
 		return repository.save(entity);
 	}

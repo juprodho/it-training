@@ -12,8 +12,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-
-
 @Entity
 @Table(name="session")
 public class Session {
@@ -74,6 +72,7 @@ public class Session {
 	public void setLieu(String lieu) {
 		this.lieu = lieu;
 	}
+
 
 
 	@ManyToOne
