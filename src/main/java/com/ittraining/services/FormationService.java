@@ -30,7 +30,7 @@ public class FormationService {
 							.collect(Collectors.toList());
 	}
 
-	private FormationDTO convertToFormation(Formation formation) {
+	public FormationDTO convertToFormation(Formation formation) {
 		FormationDTO recupNewFormation = new FormationDTO(
 				formation.getId(),
 				formation.getTitre(),
