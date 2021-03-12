@@ -26,8 +26,8 @@ public class SessionController {
 
 
 	@PostMapping("")
-	public Session save(@RequestBody Session entity) {
-		return service.save(entity);
+	public Session save(@RequestBody SessionDTO sessionDTO) {
+		return service.save(sessionDTO);
 	}
 
 	@GetMapping("")

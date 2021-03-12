@@ -12,6 +12,7 @@ import org.springframework.web.server.ResponseStatusException;
 import com.ittraining.dto.FormationDTO;
 import com.ittraining.dto.SessionDTO;
 import com.ittraining.entities.Administrateur;
+import com.ittraining.entities.Formation;
 import com.ittraining.entities.Session;
 import com.ittraining.repositories.SessionRepository;
 
@@ -24,8 +25,8 @@ public class SessionService {
 	@Autowired
 	private FormationService formationService;
 	
-	public Session save(Session entity) {		
-
+	public Session save(SessionDTO sessionDTO) {	
+		Session entity = this.convertToEntity(sessionDTO);
 		return repository.save(entity);
 	}
 
@@ -62,6 +63,19 @@ public class SessionService {
 		FormationDTO formationDTO = this.formationService.convertToFormation(session.getFormation());
 		sessionDto.setFormation(formationDTO);
 		return sessionDto;
+	}
+	
+	private Session convertToEntity(SessionDTO sessionDTO) {
+		System.out.println(sessionDTO);
+		Session session = new Session();
+		session.setDate_debut(sessionDTO.getDateDebut());
+		session.setDate_fin(sessionDTO.getDateFin());
+		session.setPrix(sessionDTO.getPrix());
+		session.setLieu(sessionDTO.getLieu());
+		
+		Formation formation = this.formationService.convertToEntity(sessionDTO.getFormation());
+		session.setFormation(formation);
+		return session;
 	}
 	
 	public List<Session> findByFormationId(Long id) {

@@ -39,6 +39,14 @@ public class FormationService {
 
 		return recupNewFormation;
 	}
+	
+	public Formation convertToEntity(FormationDTO dto) {
+		Formation formation = new Formation();
+		formation.setId(dto.getFormationId());
+		formation.setTitre(dto.getTitre());
+		formation.setDescription(dto.getDescription());
+		return formation;
+	}
 
 
 	public List<Formation> findByTitre(String titre) {
