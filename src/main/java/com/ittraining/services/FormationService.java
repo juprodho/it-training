@@ -1,6 +1,7 @@
 package com.ittraining.services;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,6 +60,12 @@ public class FormationService {
 			return null;
 		}
 		
+	}
+	
+	public void deleteById(Long id) {
+		Optional<Formation> formationFound = this.repository.findById(id);
+		if (formationFound.isPresent()) 
+			this.repository.deleteById(id);
 	}
 
 

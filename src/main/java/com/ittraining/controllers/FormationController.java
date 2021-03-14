@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -45,6 +46,11 @@ public class FormationController {
 	@GetMapping("{id}")
 	public FormationDTO findById(@PathVariable Long id) {
 		return service.findByIdToDTO(id);
+	}
+	
+	@DeleteMapping("{id}")
+	public void deleteById(@PathVariable Long id) {
+		this.service.deleteById(id);
 	}
 
 	
