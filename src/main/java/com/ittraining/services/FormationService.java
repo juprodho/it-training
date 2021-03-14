@@ -42,7 +42,7 @@ public class FormationService {
 	
 	public Formation convertToEntity(FormationDTO dto) {
 		Formation formation = new Formation();
-		formation.setId(dto.getFormationId());
+		formation.setId(dto.getId());
 		formation.setTitre(dto.getTitre());
 		formation.setDescription(dto.getDescription());
 		return formation;
