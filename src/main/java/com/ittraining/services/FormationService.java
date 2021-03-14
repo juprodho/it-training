@@ -31,7 +31,7 @@ public class FormationService {
 							.collect(Collectors.toList());
 	}
 
-	private FormationDTO convertToFormation(Formation formation) {
+	public FormationDTO convertToFormation(Formation formation) {
 		FormationDTO recupNewFormation = new FormationDTO(
 				formation.getId(),
 				formation.getTitre(),
@@ -39,6 +39,14 @@ public class FormationService {
 				);
 
 		return recupNewFormation;
+	}
+	
+	public Formation convertToEntity(FormationDTO dto) {
+		Formation formation = new Formation();
+		formation.setId(dto.getId());
+		formation.setTitre(dto.getTitre());
+		formation.setDescription(dto.getDescription());
+		return formation;
 	}
 
 

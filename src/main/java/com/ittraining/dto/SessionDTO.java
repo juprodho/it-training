@@ -1,5 +1,7 @@
 package com.ittraining.dto;
 
+
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,5 +16,6 @@ public class SessionDTO {
 	private String dateFin;
 	private String prix;
 	private String lieu;
+	private FormationDTO formation;
 
 }

@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class FormationDTO {
 
-	private Long formationId;
+	private Long id;
 	private String titre;
 	private String description;
 

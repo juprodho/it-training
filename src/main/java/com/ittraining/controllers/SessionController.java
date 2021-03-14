@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,8 +17,8 @@ import com.ittraining.entities.Session;
 import com.ittraining.services.SessionService;
 
 @RestController
-@RequestMapping("session")
 @CrossOrigin
+@RequestMapping("session")
 public class SessionController {
 
 	@Autowired
@@ -25,8 +26,8 @@ public class SessionController {
 
 
 	@PostMapping("")
-	public Session save(@RequestBody Session entity) {
-		return service.save(entity);
+	public Session save(@RequestBody SessionDTO sessionDTO) {
+		return service.save(sessionDTO);
 	}
 
 	@GetMapping("")
@@ -45,5 +46,9 @@ public class SessionController {
 		return sessionDTO;
 	}
 	
+	@DeleteMapping("{id}")
+	public void deleteById(@PathVariable Long id) {
+		this.service.deleteById(id);
+	}
 	
 }
