@@ -66,7 +66,6 @@ public class SessionService {
 	}
 	
 	private Session convertToEntity(SessionDTO sessionDTO) {
-		System.out.println(sessionDTO);
 		Session session = new Session();
 		session.setDate_debut(sessionDTO.getDateDebut());
 		session.setDate_fin(sessionDTO.getDateFin());
