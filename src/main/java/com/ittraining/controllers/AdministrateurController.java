@@ -56,9 +56,5 @@ public class AdministrateurController {
 		this.service.deleteById(id);
 	}
 	
-	@DeleteMapping("")
-	public void delete(@RequestBody Administrateur administrateur) {
-		this.service.delete(administrateur);
-	}
 	
 }
