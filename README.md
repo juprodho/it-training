@@ -48,7 +48,7 @@ Il peut aussi consulter la localisation des centres, ainsi qu'accéder à un for
 
 - Partie administrateur :
 
-Un administrateur peut accéder à la page de connexion pour accéder au dashboard administrateur avec ses éléments de login (email: admin@admin.com, password: 1234). Une fois authentifié, il peut ajouter, consulter, supprimer des formations, sessions ou comptes administrateurs. Ces éléments se mettent à jour en temps réel dans la base de données.
+Un administrateur peut accéder à la page de connexion (localhost://4200/login) pour accéder au dashboard administrateur avec ses éléments de login (ajouter manuellement un administrateur dans la BD (nom,prenom,email,mot de passe)). Une fois authentifié, il peut ajouter, consulter, supprimer des formations, sessions ou comptes administrateurs. Ces éléments se mettent à jour en temps réel dans la base de données.
 
 ## Collaborateurs ayant participé
 
