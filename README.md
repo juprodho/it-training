@@ -21,7 +21,7 @@ des écrans, …)
 ## Outils requis
 
 - JDK11 ou la JRE.
-- IDE java eclipse/Spring tool suit ou IDEA
+- IDE java eclipse/Spring tool suit ou IDEA, avec Lombok
 - mySQL
 - Logiciel Git
 - Environnement de développement Visual Studio code avec Node.js
