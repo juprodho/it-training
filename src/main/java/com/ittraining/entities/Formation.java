@@ -5,6 +5,7 @@ package com.ittraining.entities;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -72,7 +73,7 @@ public class Formation {
 	
 
 
-	@OneToMany(mappedBy = "formation")
+	@OneToMany(mappedBy = "formation", cascade = CascadeType.REMOVE)
 	private List<Session> sessions = new ArrayList<>();
 
 	public List<Session> getSessions() {
