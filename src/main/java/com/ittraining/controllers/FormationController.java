@@ -36,7 +36,6 @@ public class FormationController {
 	}
 	
 	
-	
 	@GetMapping("titre/{titre}")
 	public List<Formation> findByTitre(@PathVariable String titre) {
 		return service.findByTitre(titre);
@@ -53,6 +52,10 @@ public class FormationController {
 		this.service.deleteById(id);
 	}
 
+	@DeleteMapping("{id}")
+	public void deleteById(@PathVariable Long id) {
+		this.service.deleteById(id);
+	}
 	
 	
 	
