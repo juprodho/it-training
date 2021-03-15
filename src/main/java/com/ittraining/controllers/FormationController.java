@@ -52,10 +52,6 @@ public class FormationController {
 		this.service.deleteById(id);
 	}
 
-	@DeleteMapping("{id}")
-	public void deleteById(@PathVariable Long id) {
-		this.service.deleteById(id);
-	}
 	
 	
 	

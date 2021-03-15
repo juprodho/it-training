@@ -75,11 +75,6 @@ public class FormationService {
 			this.repository.deleteById(id);
 	}
 
-	public void deleteById(Long id) {
-		Optional<Formation> adminFound = this.repository.findById(id);
-		if (adminFound.isPresent()) 
-			this.repository.deleteById(id);
-	}
 
 
 
